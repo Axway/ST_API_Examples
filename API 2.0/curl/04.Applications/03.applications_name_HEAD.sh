@@ -19,10 +19,10 @@ curl -k -u "${USER}:${PWD}" --head "https://${SERVER}:${PORT}/api/v2.0/applicati
 #
 NAME="Transfer Log Maintenance"
 NAME=$(echo "${NAME}" | sed 's/ /%20/g')
-printf "Check if application with the name '%s' exists...\n" "${NAME}"
+printf "\nCheck if application with the name '%s' exists...\n" "${NAME}"
 RESPONSE_CODE=$(curl -s -o /dev/null -w "%{http_code}\n" -k -u "${USER}:${PWD}" --head "https://${SERVER}:${PORT}/api/v2.0/applications/${NAME}" -H "accept: */*")
 if [ "${RESPONSE_CODE}" == "200" ]; then
-  echo "Server exists."
+  echo "Application exists."
 else
-  echo "Server does not exist."
+  echo "Application does not exist."
 fi
