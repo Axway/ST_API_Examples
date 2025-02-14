@@ -18,6 +18,9 @@ Many other automation tasks such as certificate expiry monitoring, configuration
 The examples here are using linux curl command, the scripting language python and others. It should be pointed out that **ANY** language that supports HTTPS Restful APIs can be used. Please also note that the commands shown are not the sole method you might want to use. Feel free to simplify or extend further what is shown as a guideline and staring point.
 
 
+## Axway University Training on SecureTransport REST API
+https://university.axway.com/learn/learning-plans/77/securetransport-apis
+
 ## Common Terminologies
 
 The following table shows a list of terms and acronyms used throughout this project.
