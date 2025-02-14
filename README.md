@@ -3,10 +3,11 @@
 ## Table of Contents
 
 1. [Introduction](#introduction)
-2. [Common Terminologies](#common-terminologies)
-3. [OpenAPI](#openapi)
-4. [HTTP Methods](#methods)
-5. [Structure](#structure)
+2. [Axway University](#axway-university-training-on-securetransport-rest-api)
+3. [Common Terminologies](#common-terminologies)
+4. [OpenAPI](#openapi)
+5. [HTTP Methods](#methods)
+6. [Structure](#structure)
 
 ## Introduction
 SecureTransport 5.5, released in June 2020, introduced REST API 2.0. The prior API release is version 1.4. APIs were introduced to SecureTransport in 5.2.1 – though this document will not refer to those as that release (5.2.1) is no longer supported.
@@ -18,7 +19,9 @@ Many other automation tasks such as certificate expiry monitoring, configuration
 The examples here are using linux curl command, the scripting language python and others. It should be pointed out that **ANY** language that supports HTTPS Restful APIs can be used. Please also note that the commands shown are not the sole method you might want to use. Feel free to simplify or extend further what is shown as a guideline and staring point.
 
 
-## Axway University Training on SecureTransport REST API
+## Axway University Training
+A link to the Axway University learning plan for the SecureTransport REST API
+
 https://university.axway.com/learn/learning-plans/77/securetransport-apis
 
 ## Common Terminologies
