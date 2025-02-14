@@ -3,7 +3,7 @@
 ## Table of Contents
 
 1. [Introduction](#introduction)
-2. [Axway University](#axway-university-training-on-securetransport-rest-api)
+2. [Axway University](#axway-university-training)
 3. [Common Terminologies](#common-terminologies)
 4. [OpenAPI](#openapi)
 5. [HTTP Methods](#methods)
