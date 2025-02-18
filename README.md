@@ -20,7 +20,12 @@ The examples here are using linux curl command, the scripting language python an
 
 
 ## Axway University Training
-A link to the Axway University learning plan for the SecureTransport REST API
+
+Login to Axway University using your Axway ID
+
+https://university.axway.com/
+
+And then you can access the learning plan for the SecureTransport REST API
 
 https://university.axway.com/learn/learning-plans/77/securetransport-apis
 
