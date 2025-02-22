@@ -8,17 +8,6 @@ printf "Loading variables into our context..."
 source "../set_variables.sh"
 
 #
-# We will start with the basic authentication. 
-# This is a simple combination of username and password.
-# The server will check if the provided credentials are correct.
-# If they are, the server will respond with the requested data.
-# If not, the server will respond with an error message.
-# 
-printf "\n\nBasic authentication...\n"
-curl -s -k -u "${USER}:${PWD}" -X "GET" "https://${SERVER}:${PORT}/api/v2.0/myself" -H "accept: application/json"
-
-#
-# Then we will see the same request, but with the cookie jar.
 # The cookie jar is a file that stores the session information.
 # This way, we can make multiple requests without the need to authenticate every time.
 #

@@ -1,7 +1,7 @@
 #! /bin/bash
 
-export SERVER="<PUT_THE_IP_HERE>"
-export PORT="<PUT_THE_ADMIN_PORT_HERE>"
+export SERVER="10.133.128.7"
+export PORT="444"
 
-export USER="<ADMIN_USER_NAME>"
-export PWD="<ADMIN_CREDENTIALS>"
+export USER="admin"
+export PWD="1"
