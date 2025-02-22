@@ -1,13 +1,18 @@
 #!/bin/bash
 
+#
+# Get the directory of the script
+#
+SCRIPT_DIR=$(dirname "$(realpath "$0")")
+
 # 
 # First we will load the variables into our context.
 # Ensure that the path is correct and you have made the necessary changes.
 #
 printf "Loading variables into our context..."
-source "../config"
+source "${SCRIPT_DIR}/../config"
 
-COOKIE="../myCookie.jar"
+COOKIE="${SCRIPT_DIR}/../myCookie.jar"
 NUMBER_OF_FILES=$1
 
 if [[ -z $NUMBER_OF_FILES ]] ; then
@@ -18,8 +23,8 @@ fi
 #
 # Set the file name to upload
 #
-FILE_NAME="test.txt"
-printf "File name: ${NUMBER_OF_FILES}\n"
+FILE_NAME="${SCRIPT_DIR}/test.txt"
+printf "Pushing ${NUMBER_OF_FILES} of files...\n"
 
 for i in $(seq 1 "${NUMBER_OF_FILES}") ; do
     
