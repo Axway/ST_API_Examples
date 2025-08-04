@@ -1,0 +1,181 @@
+{
+  "accountSetup": {
+                    "account": {
+                                "type": "user",
+                                "name": "AxwayTest999",
+                                "homeFolder": "/Cloud/data/ST/Client/AxwayTest999",
+                                "homeFolderAccessLevel": "PUBLIC",
+                                "uid": "10000",
+                                "gid": "10000",
+                                "mappedUser": null,
+                                "disabled": false,
+                                "skin": "Default HTML Template",
+                                "notes": null,
+                                "unlicensed": false,
+                                "authByEmail": false,
+                                "businessUnit": "Client",
+                                "loginRestrictionPolicy": "ONLY_SFTP",
+                                "contact": {
+                                            "email": null,
+                                            "phone": null
+                                           },
+                                "isUnlicensedUserAllowedToReply": true,
+                                "transfersWebServiceAllowed": false,
+                                "accountEncryptMode": "UNSPECIFIED",
+                                "fileArchivingPolicy": "DEFAULT",
+                                "transferType": "N",
+                                "routingMode": "reject",
+                                "accountSubmitForApprove": null,
+                                "rejectReason": null,
+                                "accountVerificationStatus": null,
+                                "user": {
+                                          "name": "AxwayTest999",
+                                          "authExternal": false,
+                                          "locked": false,
+                                          "failedAuthMaximum": 3,
+                                          "lastFailedAuth": null,
+                                          "lastLogin": "Tue, 01 Sep 2020 14:36:15 +0200",
+                                          "successfulAuthMaximum": null,
+                                          "successfulLogins": 1,
+                                          "secretQuestion": {
+                                                              "secretQuestion": null,
+                                                              "secretAnswerGuessFailures": 0,
+                                                              "forceSecretQuestionChange": false
+                                                            },
+                                          "passwordCredentials": {
+                                                                   "password": null,
+                                                                   "passwordDigest": "NwMLQk4KTSG8seHAX1wuqIEGpt+UBR8xLdTtQvEXazWJZ5YnUXWC0vWQqbKMF7XbFvc7+Km0g+E6KNafXklg1fEU7q7JVlE9m5ltznEd7OR5iFOnwqT6azI1uroYCGzaoWAqKpK8ImhnHCdeAweyJ54Q8UoyqaIBbXZZyr1vOlaDBBNtqATe2KiF+klzBW567eGXSAr+82F0KVkwVNXkdG4spBWtdqmHCRjuXh+4kX3OEt/yy3RunQI1RAVx22GHHdK2TBKsGRq9qVpqyJ7lHU3YNExzhq3vkQrK97mZlw2ehTkLuncr6A2l/4HDFoRBx+OqL2uXOsZLYnS/CiD4Bw==",
+                                                                   "forcePasswordChange": false,
+                                                                   "lastPasswordChange": "Tue, 01 Sep 2020 14:35:32 +0200",
+                                                                   "lastOwnPasswordChange": null,
+                                                                   "passwordExpiryInterval": null
+                                                                 }
+                                         },
+                                "addressBookSettings": {
+                                                         "policy": "default",
+                                                         "nonAddressBookCollaborationAllowed": null,
+                                                         "sources": [],
+                                                         "contacts": []
+                                                       },
+                                "adhocSettings": {
+                                                  "deliveryMethod": "DEFAULT",
+                                                  "enrollmentTypes": [],
+                                                  "implicitEnrollmentType": null
+                                                 },
+                                "accountMaintenanceSettings": {
+                                                                "criteria": {
+                                                                              "daysAfterCreation": null,
+                                                                              "daysOfInactivity": null
+                                                                            },
+                                                                "action": {
+                                                                              "action": null,
+                                                                              "daysDeleteDisabled": null
+                                                                          },
+                                                                "emailNotificationBeforeAction": {
+                                                                              "notifyDays": null,
+                                                                              "emailTemplate": null,
+                                                                              "notifyAccount": null
+                                                                          },
+                                                                "emailNotificationForUserPassword": {
+                                                                              "notifyDays": null,
+                                                                              "emailTemplate": null,
+                                                                              "notifyAccount": null
+                                                                          },
+                                                                "emailNotificationForUserCertificate": {
+                                                                              "notifyDays": null,
+                                                                              "emailTemplate": null,
+                                                                              "notifyAccount": null
+                                                                          },
+                                                                "policy": "default",
+                                                                "accountDisabledDate": null,
+                                                                "accountNotified": null,
+                                                                "accountPasswordNotified": null,
+                                                                "accountCertificateNotified": null
+                                                              },
+                                "fileMaintenanceSettings": {
+                                                             "policy": "default",
+                                                             "deleteFilesDays": null,
+                                                             "pattern": null,
+                                                             "expirationPeriod": null,
+                                                             "removeFolders": null,
+                                                             "warningNotifications": null,
+                                                             "warnNotifyAccount": null,
+                                                             "warningNotificationsTemplate": null,
+                                                             "notifyDays": null,
+                                                             "sendSentinelAlert": null,
+                                                             "deletionNotifications": null,
+                                                             "deletionNotifyAccount": null,
+                                                             "deletionNotificationsTemplate": null,
+                                                             "reportNotified": null,
+                                                             "warnNotified": null
+                                                           },
+                                "bandwidthLimits": {
+                                                     "policy": "default",
+                                                     "inboundLimit": null,
+                                                     "outboundLimit": null
+                                                   },
+                                "additionalAttributes": {}
+                     },
+                  "sites" : [
+                             {
+                              "type": "ssh",
+                              "id": "8a01bdd7742bcd8b017449aa54a20108",
+                              "name": "Inbound999",
+                              "account": "AxwayTest999",
+                              "protocol": "ssh",
+                              "transferType": "partner",
+                              "siteTemplate": null,
+                              "maxConcurrentConnection": 0,
+                              "default": false,
+                              "accessLevel": "PRIVATE",
+                              "fingerPrint": "",
+                              "verifyFinger": false,
+                              "host": "10.129.61.87",
+                              "port": "22",
+                              "alternativeAddresses": [],
+                              "downloadFolderAdvancedExpressionEnabled": false,
+                              "downloadFolder": "testGreenzone",
+                              "downloadPatternAdvancedExpressionEnabled": false,
+                              "downloadPattern": ".*",
+                              "uploadFolder": null,
+                              "uploadFolderOverridable": true,
+                              "userName": "axway",
+                              "usePassword": true,
+                              "usePasswordExpr": null,
+                              "password": "{AES128}3HHoyl5AZWbq6YleUjm0fw==",
+                              "clientCertificate": null,
+                              "transferMode": "AUTO_DETECT",
+                              "fipsMode": false,
+                              "dmz": "Default",
+                              "socketTimeout": 300,
+                              "socketBufferSize": 65536,
+                              "socketSendBufferSize": 65536,
+                              "downloadPatternType": "regex",
+                              "uploadPermissions": "0644",
+                              "bufferSize": 32768,
+                              "blockSize": 32768,
+                              "tcpNoDelay": false,
+                              "cipherSuites": "aes256-ctr,aes256-gcm@openssh.com,aes192-ctr,aes128-ctr,aes128-gcm@openssh.com",
+                              "protocols": null,
+                              "allowedMacs": "hmac-sha256,hmac-sha256@ssh.com,hmac-sha2-256,hmac-sha512,hmac-ripemd160",
+                              "keyExchangeAlgorithms": "diffie-hellman-group14-sha256,diffie-hellman-group-exchange-sha256,curve25519-sha256@libssh.org,diffie-hellman-group15-sha512,diffie-hellman-group17-sha512,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512",
+                              "publicKeys": "ssh-rsa,ssh-rsa-cert-v01@openssh.com,x509v3-rsa2048-sha256,x509v3-ssh-rsa,x509v3-sign-rsa",
+                              "postTransmissionActions": {
+                                                           "doAsOut": null,
+                                                           "deleteOnTempFailOut": null,
+                                                           "moveOnTempFailOut": null,
+                                                           "deleteOnPermFailOut": null,
+                                                           "moveOnPermFailOut": null,
+                                                           "moveOnSuccessOut": null,
+                                                           "doMoveOverwriteOut": null,
+                                                           "doAsIn": "",
+                                                           "deleteOnPermFailIn": null,
+                                                           "moveOnPermFailIn": null,
+                                                           "deleteOnSuccessIn": null,
+                                                           "moveOnSuccessIn": null,
+                                                           "doMoveOverwriteIn": null
+                                                         }
+                             }
+                           ]
+       }
+}

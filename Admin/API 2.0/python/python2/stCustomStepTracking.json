@@ -1,0 +1,28 @@
+{
+          "id": "8a01bdd775fb1e8e0175ff8f30ff00f7",
+          "type": "CustomStepTracking",
+          "status": "DISABLED",
+          "autostart": false,
+          "precedingStep": "8a01bdd775fb1e8e0175ff8f2ecd00f4",
+          "customProperties": {
+            "mFlowType": "EXPLANGUAGE3",
+            "mTrackedObject": "EVENTLOG",
+            "mTrackingId": "EXPLANGUAGE2",
+            "mCheckFileName": "true",
+            "usePrecedingStepFiles": "true",
+            "mPort": "1305",
+            "mProductName": "ST_Step_Tracking",
+            "mProfileIdExp": "8976",
+            "mState": "STARTED",
+            "mTrackingidExp": "${transfer.coreId}",
+            "mHostName": "slnxphxshvra312.lab.phx.axway.int",
+            "mActivityname": "PGP Decryption",
+            "mStageId": "3",
+            "fileFilterExpressionType": "GLOB",
+            "actionOnStepFailure": "FAIL",
+            "fileFilterExpression": "*",
+            "mFlowTypeExp": "${flow.attributes['userVars.direction']}",
+            "mTrackedObjectVersion": "1.0",
+            "mProfileId": "EXPLANGUAGE1"
+          }
+}

@@ -1,0 +1,76 @@
+--demoBoundary
+Content-Type: application/json
+
+{
+ "accountSetup": {
+                    "account": {
+                                "type": "user",
+                                "name": "AxwayTest999",
+                                "homeFolder": "/usrdata/BU/clients/AxwayTest999",
+                                "homeFolderAccessLevel": "PUBLIC",
+                                "uid": "10000",
+                                "gid": "10000",
+                                "disabled": false,
+                                "skin": "Default HTML Template",
+                                "notes": "Created By AccountSetup API",
+                                "unlicensed": false,
+                                "authByEmail": false,
+                                "businessUnit": "clients",
+                                "loginRestrictionPolicy": "ONLY_SFTP",
+                                "contact": {
+                                            "email": null,
+                                            "phone": null
+                                           },
+                                "isUnlicensedUserAllowedToReply": true,
+                                "transfersWebServiceAllowed": true,
+                                "accountEncryptMode": "UNSPECIFIED",
+                                "fileArchivingPolicy": "DEFAULT",
+                                "transferType": "N",
+                                "routingMode": "reject",
+                                "user": {
+                                          "name": "AxwayTest999",
+                                          "authExternal": false,
+                                          "locked": false,
+                                          "failedAuthMaximum": 3,
+                                          "successfulAuthMaximum": null,
+                                          "secretQuestion": {
+                                                              "secretQuestion": null,
+                                                              "forceSecretQuestionChange": false
+                                                            },
+                                          "passwordCredentials": {
+                                                                   "password": "axway",
+                                                                   "forcePasswordChange": false,
+                                                                   "passwordExpiryInterval": null
+                                                                 }
+                                         },
+                                "additionalAttributes": {
+                                                            "cattype": "purry"
+                                                        }
+                                        
+                     },
+               "certificates": {"login" : [ {
+                                            "type" : "ssh",
+                                            "validity": 730,
+                                            "keySize": 2048,
+                                            "keyName": "pippinssh",
+                                            "accessLevel": "Private",
+                                            "account": "AxwayTest999",
+                                            "subject": "C=, O=, OU=, CN=SSHKeyTest999",
+                                            "caPassword" : "Axway123"
+                                            }
+                                          ]
+                               }
+
+
+       }
+
+  
+}
+
+--demoBoundary
+Content-Type: application/octet-stream
+keyName: pippinssh
+
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDB7nWsckERFOg2xJclW6yNaPZTZ0xZzn4vHTWckWJ/qy39p5HV3nu3B2a/HbF9leHgbrBUBAkrlnIZWs89zJMj720ZatNW+Q/tMgngoXBC/sWdH/NONe0ddmIPwN7FsZgnRQMLrOUqafQBoy7wxV5T0LzaEU0hnksw6vuqNnE91Wu9L9ydCnoUVWzWgF4xHpCmcCswND2tDpHqJYFUPeyROZZEHWUvw/3PjiDaUXXb7hLie4IanlpkEbwxF707xFhluv6/YJ4TrWEuTWhUk3GIJDjcibZHvGFM7i5ecYso1R/Agz8MlYb2PFKwHVSJ+AjYZPABNnqIbDIcL/qZyU6V axway@SLNXPHXSHVRA251
+
+--demoBoundary--

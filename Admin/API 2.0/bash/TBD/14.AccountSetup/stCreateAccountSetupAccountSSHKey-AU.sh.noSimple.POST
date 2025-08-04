@@ -1,0 +1,158 @@
+#!/usr/bin/sh
+#
+# V1.0 Ian Percival  2-May-2021
+#
+# Pre-Requisite: login to /myself to initiate session management cookies.
+#
+#                Require Template Route ID
+#                may require SSH Certificate ID if using key based auth
+#                Require Subscription ID
+#                Require Simple ROute ID
+#
+source /Cloud/apps/apis/config
+#
+
+result=$(curl -v -k -i -L -b myCookie.jar -s -X POST "$url/accountSetup" \
+-H "Referer: Ian" \
+-H "Content-Type: multipart/mixed; boundary=demoBoundary" \
+--data '--demoBoundary
+Content-Type: application/json
+
+     {"accountSetup":
+     as": "PippinPrivateKey",
+                   "validity": 777,
+                   "certificatePassword": "tumbleweed",
+                   "accessLevel": "PRIVATE",
+                   "caPassword": "Alfisreal132$",
+                   "account": "PippinCat",
+                   "generate": false,
+                   "subject" : "EMAILADDRESS=no-reply@axway.int, CN=cats.rule, OU=Kitten, O=Axway, L=PHX, ST=AZ, C=US",
+                   "keyName": "PippinPrivateKey"}
+ {
+        "account": {
+            "type": "user",
+            "name": "PippinCat",
+            "homeFolder": "/usrdata/NoBU/PippinCat",
+            "uid": "7001",
+            "gid": "7000",
+            "user": {
+                "name": "PippinCat",
+                "authExternal": false,
+                "passwordCredentials": { "password": "Test1234567",
+                                       "forcePasswordChange": false
+                                      }
+            }
+          },
+        "certificates": {
+            "private": [
+                 { "type" : "x509",
+                   "alias": "PippinPrivateKey",
+                   "validity": 777,
+                   "certificatePassword": "tumbleweed",
+                   "accessLevel": "PRIVATE",
+                   "caPassword": "Alfisreal132$",
+                   "account": "PippinCat",
+                   "generate": false,
+                   "subject" : "EMAILADDRESS=no-reply@axway.int, CN=cats.rule, OU=Kitten, O=Axway, L=PHX, ST=AZ, C=US",
+                   "keyName": "PippinPrivateKey"}
+            ]
+        },
+        "sites": [
+                  {
+                    "type": "ssh",
+                    "name": "FlokiCatSSH1",
+                    "host": "10.129.128.2",
+                    "account": "PippinCat",
+                    "port": "22",
+                    "protocol": "ssh",
+                    "dmz": "none",
+                    "transferType": "internal",
+                    "usePassword": false,
+                    "i   {"accountSetup":
+      {
+        "account": {
+            "type": "user",
+            "name": "PippinCat",
+            "homeFolder": "/usrdata/NoBU/PippinCat",
+            "uid": "7001",
+            "gid": "7000",
+            "user": {
+                "name": "PippinCat",
+                "authExternal": false,
+                "passwordCredentials": { "password": "Test1234567",
+                                       "forcePasswordChange": false
+                                      }
+            }
+          },
+        "certificates": {
+            "private": [
+                 { "type" : "x509",
+                   "alias": "PippinPrivateKey",
+                   "validity": 777,
+                   "certificatePassword": "tumbleweed",
+                   "accessLevel": "PRIVATE",
+                   "caPassword": "Alfisreal132$",
+                   "account": "PippinCat",
+                   "generate": false,
+                   "subject" : "EMAILADDRESS=no-reply@axway.int, CN=cats.rule, OU=Kitten, O=Axway, L=PHX, ST=AZ, C=US",
+                   "keyName": "PippinPrivateKey"}
+            ]
+        },
+        "sites": [
+                  {
+                    "type": "ssh",
+                    "name": "FlokiCatSSH1",
+                    "host": "10.129.128.2",
+                    "account": "PippinCat",
+                    "port": "22",
+                    "protocol": "ssh",
+                    "dmz": "none",
+                    "transferType": "internal",
+                    "usePassword": false,
+                    "iserName": "FlokiCat"
+                  }
+                 ],
+        "subscriptions": [
+                          {
+                           "type": "AdvancedRouting",
+                           "application": "AdvRouting",
+                           "folder": "/toPippinUnix",
+                           "account": "PippinCat",
+                           "transferConfigurations": [
+                                                      {
+                                                       "tag": "PARTNER-IN",
+                                                       "outbound": false
+                                                      }
+                                                     ]
+                          }
+                         ],
+        "routes": [
+                    {
+                      "name": "CompositeRoute1",
+                      "type": "COMPOSITE",
+                      "routeTemplate": "8a010082791941bc01792cb6c50b01e4",
+                      "account": "PippinCat",
+                      "conditionType": "MATCH_ALL"
+                    }
+                  ]  
+    }            
+  }
+
+--demoBoundary
+Content-Type: application/octet-stream
+Content-Disposition: attachment;
+keyName: PippinPrivateKey
+encoded: true
+
+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
+--demoBoundary--')
+http_status=$(echo $result | grep HTTP | awk '{print $2}')
+#
+if [[ $http_status -ne 100 ]] ; then
+        echo "Create Account failure: $http_status"
+        echo $result
+        exit
+fi
+echo $result
+
+

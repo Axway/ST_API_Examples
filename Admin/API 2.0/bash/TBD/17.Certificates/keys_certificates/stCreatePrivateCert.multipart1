@@ -1,0 +1,8 @@
+--floki1234
+Content-Type: application/json
+
+{"account": "AxwayTest000","type": "x509", "usage": "private", "password":"axway123","accessLevel": "PRIVATE", "name":"pippinscert"}
+
+--floki1234
+Content-Type: application/octet-stream
+

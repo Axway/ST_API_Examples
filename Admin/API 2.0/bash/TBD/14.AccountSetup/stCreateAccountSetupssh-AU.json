@@ -1,0 +1,77 @@
+--demoBoundary
+Content-Type: application/json
+
+{
+
+ "accountSetup": {
+                    "account": {
+                                "type": "user",
+                                "name": "PippinCat",
+                                "homeFolder": "/usrdata/NoBU/PippinCat",
+                                "homeFolderAccessLevel": "PUBLIC",
+                                "uid": "10000",
+                                "gid": "10000",
+                                "mappedUser": null,
+                                "disabled": false,
+                                "skin": "Default HTML Template",
+                                "notes": null,
+                                "unlicensed": false,
+                                "authByEmail": false,
+                                "contact": {
+                                            "email": null,
+                                            "phone": null
+                                           },
+                                "isUnlicensedUserAllowedToReply": true,
+                                "transfersWebServiceAllowed": false,
+                                "accountEncryptMode": "UNSPECIFIED",
+                                "fileArchivingPolicy": "DEFAULT",
+                                "transferType": "N",
+                                "routingMode": "reject",
+                                "accountSubmitForApprove": null,
+                                "rejectReason": null,
+                                "accountVerificationStatus": null,
+                                "user": {
+                                          "name": "PippinCat",
+                                          "authExternal": false,
+                                          "locked": false,
+                                          "failedAuthMaximum": 3,
+                                          "successfulAuthMaximum": null,
+                                          "secretQuestion": {
+                                                              "secretQuestion": null,
+                                                              "secretAnswerGuessFailures": 0,
+                                                              "forceSecretQuestionChange": false
+                                                            },
+                                          "passwordCredentials": {
+                                                                   "password": "HelloPippin",
+                                                                   "forcePasswordChange": false,
+                                                                   "passwordExpiryInterval": null
+                                                                 }
+                                         }
+                     },
+                     "certificates": {"login" : [ {
+                                            "type" : "ssh",
+                                            "validity": 730,
+                                            "keySize": 2048,
+                                            "keyName": "pippinssh",
+                                            "accessLevel": "Private",
+                                            "account": "PippinCat",
+                                            "subject": "C=, O=, OU=, CN=SSHKeyTest999",
+                                            "caPassword" : "Alfisreal132$"
+                                            }
+                                          ]
+                               }
+
+
+       }
+
+  
+}
+
+--demoBoundary
+Content-Type: application/octet-stream
+keyname: pippinssh
+encoded: false
+
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC/gE66qlwhvCO2GebsAZy/nxMpiXpX7K3daFhvhS30zM+QIEIO7n8tBv6aM4LtQS5D1gLxDJSZnp+K2CkCv8lOb7PiXuvHZD4ZnpQpMAoM2VjGwbw+pRXTt75SrXGkB43MNgpyiPlRgvW5GY0YRLAZEU73x3O6TXEtxIaF/O2Bk9/wYas4G1djNnphIepyQkQ4h+ERS36kAcYYPkBdxDk8e+doiXrD0OhcDjGJ/0EU5LhhVUL66AM47/Xx2RggSONQC92+oDzIj71txdvpM96VP43b83F3kCKz7RkYiTDXgqMuY/nLIOAkklx5Jdq7uGZieuZlcajjRA89gM9n2LJH pippin@SL3CSOAPP3237
+
+--demoBoundary--

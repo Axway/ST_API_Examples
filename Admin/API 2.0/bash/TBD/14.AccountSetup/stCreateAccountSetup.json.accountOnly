@@ -1,0 +1,45 @@
+{
+  "accountSetup": {
+                    "account": {
+                                "type": "user",
+                                "name": "AxwayTest999",
+                                "homeFolder": "/usrdata/BU/clients/AxwayTest999",
+                                "homeFolderAccessLevel": "PUBLIC",
+                                "uid": "10000",
+                                "gid": "10000",
+                                "disabled": false,
+                                "skin": "Default HTML Template",
+                                "notes": "Created By AccountSetup API",
+                                "businessUnit": "clients",
+                                "loginRestrictionPolicy": "ONLY_SFTP",
+                                "contact": {
+                                            "email": null,
+                                            "phone": null
+                                           },
+                                "isUnlicensedUserAllowedToReply": true,
+                                "transfersWebServiceAllowed": true,
+                                "transferType": "N",
+                                "routingMode": "reject",
+                                "user": {
+                                          "name": "AxwayTest999",
+                                          "authExternal": false,
+                                          "locked": false,
+                                          "failedAuthMaximum": 3,
+                                          "successfulAuthMaximum": null,
+                                          "secretQuestion": {
+                                                              "secretQuestion": null,
+                                                              "forceSecretQuestionChange": false
+                                                            },
+                                          "passwordCredentials": {
+                                                                   "password": "axway",
+                                                                   "forcePasswordChange": false,
+                                                                   "passwordExpiryInterval": null
+                                                                 }
+                                         },
+                                "additionalAttributes": {
+                                                            "cattype": "purry"
+                                                        }
+                     }
+       }
+}
+

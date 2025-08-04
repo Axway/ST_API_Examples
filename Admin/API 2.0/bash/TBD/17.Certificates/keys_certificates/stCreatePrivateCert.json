@@ -1,0 +1,11 @@
+{
+      "account": "AxwayTest000",
+      "type": "x509",
+      "usage": "PRIVATE",
+      "password": "axway123",
+      "accessLevel": "PRIVATE",
+      "validityPeriod": 120,
+      "subject" : "fish",
+      "overwrite" : true,
+      "name" : "gcf"
+}

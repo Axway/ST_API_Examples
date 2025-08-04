@@ -1,0 +1,8 @@
+[
+    {
+       "op": "add",
+       "path": "/addressBookSettings/contacts/-",
+       "value" : { "fullName" : "Test 2Contact421",
+                   "primaryEmail" : "a22@1b.com1" }
+    }
+]
