@@ -1,19 +1,28 @@
-#! /bin/bash
-
+#!/bin/bash
+# ==============================================================================
+# Script Name: 01.version_GET.sh
+# Author: Plamen Milenkov
+# Created: 2025-08-05
+# Location: Sofia
+# ==============================================================================
+# Description:
+# This script performs a basic authentication request to retrieve the current
+# product version from the API. It uses username and password credentials and
+# sends a GET request to the `/version` endpoint.
 #
-# Ensure the defined variables are loaded in our context
+# Usage:
+# ./01.version_GET.sh
 #
+# Notes:
+# - Ensure that `set_variables.sh` is correctly configured and sourced.
+# - This script uses basic authentication and will be updated to token-based
+#   authentication in future iterations.
+# ==============================================================================
+# Load environment variables
 source "../set_variables.sh"
 
-#
-# We will start with Basic Authentication '-u ${USER}:${PWD}' but very soon we will move to a token authentication.
-# Our first query is to GET the current product's version.
-# The -H option is for passing a header, which in this case is the Media Type - application/json.
-#
+# Perform GET request to retrieve product version
+curl -k -u "${USER}:${PWD}" -X "GET" "https://${SERVER}:${PORT}/api/v2.0/version" \
+  -H "accept: application/json"
 
-curl -k -u "${USER}:${PWD}" -X "GET" "https://${SERVER}:${PORT}/api/v2.0/version" -H "accept: application/json"
-
-#
-# That was it for the first REST API query.
-# Check the next example to see how you can parse that very same request.
-#
+# End of script
