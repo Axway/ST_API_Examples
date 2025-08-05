@@ -1,44 +1,48 @@
 #!/bin/bash
-################################################################################
+# ==============================================================================
 # Script Name: Acknowledgment.sh
-# Description: This script sends ACK/NACK for PeSIT transfers based on the provided CORE_ID.
-# It interacts with the Axway SecureTransport API to find inbound and outbound transfers, 
-# validates the transfer status, and sends the appropriate acknowledgment (ACK or NACK).
+# Author: Plamen Milenkov
+# Created: 2025-08-05
+# Location: Sofia
+# ==============================================================================
+# Description:
+# This script verifies the existence of outbound PeSIT transfers associated with
+# a given Core ID and sends an acknowledgment (ACK) or negative acknowledgment (NACK)
+# based on the result. It supports retry logic and configurable transfer types.
 #
-# Usage: ./Acknowledgment.sh <CORE_ID> [HOST] [TYPE_OF_OUTBOUND_TRANSFER] 
-#                             [NUMBER_OF_EXPECTED_OUTBOUND_TRANSFERS] 
-#                             [SEND_NACK_IF_NOT_FOUND] [ROOT_FOLDER] 
-#                             [CLEAR_API_OUTPUT_FILES] [NUMBER_OF_RETRIES] 
-#                             [SLEEP_BETWEEN_RETRIES]
+# Key Features:
+# - Validates inbound transfer existence before proceeding.
+# - Supports MIX, PUSH, and DOWNLOAD outbound transfer types.
+# - Sends ACK/NACK with retry and delay options.
+# - Logs all operations with timestamps and core identifiers.
+# - Optionally clears API output files after execution.
+#
+# Usage:
+# ./PeSIT_Outbound_Transfer_Acknowledgment.sh <CORE_ID> [HOST] [TYPE_OF_OUTBOUND_TRANSFER] [NUMBER_OF_EXPECTED_OUTBOUND_TRANSFERS] [SEND_NACK_IF_NOT_FOUND] [ROOT_FOLDER] [CLEAR_API_OUTPUT_FILES] [NUMBER_OF_RETRIES] [SLEEP_BETWEEN_RETRIES]
 #
 # Parameters:
-#   CORE_ID                                 - Unique identifier for the transfer (required).
-#   HOST                                    - Hostname of the SecureTransport server 
-#                                           (default: localhost).
-#   TYPE_OF_OUTBOUND_TRANSFER               - Type of outbound transfer: MIX, PUSH, or 
-#                                           DOWNLOAD (default: MIX).
-#   NUMBER_OF_EXPECTED_OUTBOUND_TRANSFERS   - Expected number of outbound transfers 
-#                                           (default: 1).
-#   SEND_NACK_IF_NOT_FOUND                  - Whether to send NACK if the transfer is not 
-#                                           found (default: TRUE).
-#   ROOT_FOLDER                             - Root folder for logs and API outputs 
-#                                           (default: /var/tmp).
-#   CLEAR_API_OUTPUT_FILES                  - Whether to clear API output files after 
-#                                           execution (default: FALSE).
-#   NUMBER_OF_RETRIES                       - Number of retries for sending ACK/NACK 
-#                                           (default: 1).
-#   SLEEP_BETWEEN_RETRIES                   - Sleep duration between retries in seconds 
-#                                           (default: 1).
+# CORE_ID                            - Unique identifier for the transfer.
+# HOST                               - API host (default: localhost).
+# TYPE_OF_OUTBOUND_TRANSFER          - MIX, PUSH, or DOWNLOAD (default: MIX).
+# NUMBER_OF_EXPECTED_OUTBOUND_TRANSFERS - Expected number of outbound transfers (default: 1).
+# SEND_NACK_IF_NOT_FOUND             - TRUE to send NACK if expected transfers are missing (default: TRUE).
+# ROOT_FOLDER                        - Root directory for logs and outputs (default: /var/tmp).
+# CLEAR_API_OUTPUT_FILES             - TRUE to delete API output files after processing (default: FALSE).
+# NUMBER_OF_RETRIES                  - Number of retry attempts for ACK/NACK (default: 1).
+# SLEEP_BETWEEN_RETRIES              - Delay between retries in seconds (default: 1).
+#
+# Dependencies:
+# - curl
 #
 # Exit Codes:
-#   0 - Success
-#   1 - Error
-#   2 - Retry required
+# 0 - Success
+# 1 - Error (e.g., missing parameters, API failure)
+# 2 - Retry suggested (e.g., outbound transfer not yet available)
 #
-# Author: pmilenkov@axway.com
-# Version: 1.0.0
-# Date: 2025-08-DD
-################################################################################
+# Notes:
+# - Ensure ADMIN_USER and ADMIN_PWD are securely managed.
+# - This script is intended for internal use and assumes trusted network access.
+# ==============================================================================
 
 set -e
 set -o pipefail
@@ -109,7 +113,7 @@ FILELOG="$LOG_DIR/COREID_${CORE_ID}.log"
 
 API_URL="https://${HOST}:444/api/v2.0"
 ADMIN_USER="admin"
-ADMIN_PWD="1"
+ADMIN_PWD="admin"
 
 # Create necessary directories
 mkdir -p "$API_OUTPUTS_DIR"
