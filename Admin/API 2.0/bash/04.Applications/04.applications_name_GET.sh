@@ -1,8 +1,23 @@
-#! /bin/bash
+#!/bin/bash
+# ==============================================================================
+# Script Name: 04.applications_name_GET.sh
+# Author: Plamen Milenkov
+# Created: 2025-08-06
+# Location: Sofia
+# ==============================================================================
+# Description:
+# This script retrieves information about a specific application using the
+# `/applications/{name}` endpoint. It also checks whether business units are
+# assigned to the application.
+#
+# Usage:
+# ./04.applications_name_GET.sh
+#
+# Notes:
+# - Ensure that `set_variables.sh` is correctly configured and sourced.
+# - Application names with spaces must be URL-encoded.
+# ==============================================================================
 
-#
-# Ensure the defined variables are loaded in our context
-#
 source "../set_variables.sh"
 
 MAIN_URL="https://${SERVER}:${PORT}/api/v2.0/applications"
