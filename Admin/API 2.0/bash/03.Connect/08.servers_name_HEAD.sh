@@ -1,22 +1,32 @@
-#! /bin/bash
+#!/bin/bash
+# ==============================================================================
+# Script Name: 08.servers_name_HEAD.sh
+# Author: Plamen Milenkov
+# Created: 2025-08-06
+# Location: Sofia
+# ==============================================================================
+# Description:
+# This script checks whether a specific server exists using the HTTP HEAD method.
+# It uses curl's `--head` option to retrieve only the response headers.
+# A 200 response code indicates the server exists; 404 means it does not.
+#
+# Usage:
+# ./08.servers_name_HEAD.sh
+#
+# Notes:
+# - Ensure that `set_variables.sh` is correctly configured and sourced.
+# - HEAD requests are efficient for existence checks without retrieving full content.
+# ==============================================================================
 
-#
-# Ensure the defined variables are loaded in our context
-#
+echo "Loading variables into our context..."
 source "../set_variables.sh"
 
-#
-# To check if a server exists, we can use the HEAD method.
-# This method will return the headers of the response, but not the body.
-# Pay attention that we do not execute -X HEAD, but --head instead. For more information, check the curl manual.
-# 
 NAME="SSH_TEST_SERVER_1"
+
+# Perform HEAD request
 curl -k -u "${USER}:${PWD}" --head "https://${SERVER}:${PORT}/api/v2.0/servers/${NAME}" -H "accept: */*"
 
-#
-# The response code will be 200 if the server exists.
-# If the server does not exist, the response code will be 404.
-# 
+# Check response code
 RESPONSE_CODE=$(curl -s -o /dev/null -w "%{http_code}\n" -k -u "${USER}:${PWD}" --head "https://${SERVER}:${PORT}/api/v2.0/servers/${NAME}" -H "accept: */*")
 if [ "${RESPONSE_CODE}" == "200" ]; then
   echo "Server exists."

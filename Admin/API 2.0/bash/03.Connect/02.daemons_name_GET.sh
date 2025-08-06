@@ -1,46 +1,47 @@
-#! /bin/bash
+#!/bin/bash
+# ==============================================================================
+# Script Name: 02.daemons_name_GET.sh
+# Author: Plamen Milenkov
+# Created: 2025-08-06
+# Location: Sofia
+# ==============================================================================
+# Description:
+# This script queries the SSH daemon from the `/daemons/{name}` endpoint,
+# extracts the banner from the response, checks if it's defined, and simulates
+# a fake banner check.
+#
+# Usage:
+# ./02.daemons_name_GET.sh
+#
+# Notes:
+# - Ensure that `set_variables.sh` is correctly configured and sourced.
+# - The script uses basic authentication and filters JSON output using grep and cut.
+# ==============================================================================
 
-#
-# Ensure the defined variables are loaded in our context
-#
+echo "Loading variables into our context..."
 source "../set_variables.sh"
 
-#
-# Here we are going to extract the banner from the SSH daemon.
-# First we will get the SSH daemon's information.
-#
 NAME="ssh"
+
+# Query the SSH daemon
 curl -k -u "${USER}:${PWD}" -X "GET" "https://${SERVER}:${PORT}/api/v2.0/daemons/${NAME}" -H "accept: application/json"
 
-#
-# Now we are going to extract the banner from the response.
-# We will use the 'grep' command to filter the response.
-# The 'cut' command will help us to extract the banner.
-#
+# Extract banner from response
 RESPONSE=$(curl -k -u "${USER}:${PWD}" -X "GET" "https://${SERVER}:${PORT}/api/v2.0/daemons/${NAME}" -H "accept: application/json")
 BANNER=$(echo "${RESPONSE}" | grep "banner" | cut -d '"' -f 4)
 
-#
-# Let's check if the banner is defined.
-#
+# Check if banner is defined
 if [ -z "${BANNER}" ]; then
     echo "There is no banner defined."
 else
     echo "There is a banner defined: '${BANNER}'."
 fi
-
-
-#
-# Now we are going to fake a banner for the SSH daemon.
-#
+# Simulate a fake banner
 echo "Setting the banner..."
-BANNER='"banner": "This is a SecureTransport REST API test banner."'
+FAKE_JSON='"banner": "This is a SecureTransport REST API test banner."'
+BANNER=$(echo "${FAKE_JSON}" | grep "banner" | cut -d '"' -f 4)
 
-#
-# Repeat the grep, but this time we will use the fake banner.
-#
-BANNER=$(echo "${BANNER}" | grep "banner" | cut -d '"' -f 4)
-
+# Check if fake banner is defined
 if [ -z "${BANNER}" ]; then
     echo "There is no banner defined."
 else

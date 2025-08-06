@@ -1,17 +1,25 @@
-#! /bin/bash
+#!/bin/bash
+# ==============================================================================
+# Script Name: 13.servers_operations_POST.sh
+# Author: Plamen Milenkov
+# Created: 2025-08-06
+# Location: Sofia
+# ==============================================================================
+# Description:
+# This script manages server operations using the `/servers/operations` endpoint.
+# It demonstrates:
+# - Starting servers that are currently stopped
+# - Starting daemons required for server activation
+#
+# Usage:
+# ./13.servers_operations_POST.sh
+#
+# Notes:
+# - Ensure that `set_variables.sh` is correctly configured and sourced.
+# - Daemons must be running for certain servers to start successfully.
+# ==============================================================================
 
-#
-# Ensure the defined variables are loaded in our context
-#
 source "../set_variables.sh"
-
-
-#
-# First we will get the list of all servers and focus on their names and current status.
-# After that we will start those that are stopped.
-# We will check that all are running.
-# Finally we will stop all servers.
-# 
 
 printf "Getting the list of servers...\n"
 ALL_SERVERS=$(curl -s -k -u "${USER}:${PWD}" -X "GET" "https://${SERVER}:${PORT}/api/v2.0/servers?fields=serverName,isActive" -H "accept: application/json" -H "Content-Type: application/json")
@@ -28,13 +36,6 @@ for i in $(seq 0 $((${NUMBER_OF_SERVERS} - 1))); do
         curl -k -u "${USER}:${PWD}" -X "POST" "https://${SERVER}:${PORT}/api/v2.0/servers/operations?serverName=${NAME}&operation=start" -H "accept: application/json" -H "Content-Type: application/json"
     fi
 done
-
-# 
-# As you may see from the output, some servers cannot be started unless the respective daemons are running.
-# As a next step, let's check the status of all daemons and start those that are not started yet.
-# Then we will repeat the steps from above.
-# As we will have a repetitive operations, we will use a functiion to reuse the code.
-# 
 
 function start_daemon {
     DAEMON_STATUS=$1
@@ -56,9 +57,3 @@ start_daemon "$(echo ${ALL_DAEMONS} | jq '.as2Status')" "as2"
 start_daemon "$(echo ${ALL_DAEMONS} | jq '.pesitStatus')" "pesit"
 start_daemon "$(echo ${ALL_DAEMONS} | jq '.ftpStatus')" "ftp"
 start_daemon "$(echo ${ALL_DAEMONS} | jq '.httpStatus')" "http"
-
-
-# 
-# Now you can repeat the steps from above to start the servers.
-# In case you reach other issues, like not enabled services within the daemons - check the schema in swagger. 
-#

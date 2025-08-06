@@ -1,32 +1,35 @@
-#! /bin/bash
+#!/bin/bash
+# ==============================================================================
+# Script Name: 01.daemons_GET.sh
+# Author: Plamen Milenkov
+# Created: 2025-08-06
+# Location: Sofia
+# ==============================================================================
+# Description:
+# This script queries the `/daemons` endpoint to retrieve system daemon statuses.
+# It demonstrates how to extract specific fields from the response, such as
+# `sshStatus`, using both full and filtered API calls.
+#
+# Usage:
+# ./01.daemons_GET.sh
+#
+# Notes:
+# - Ensure that `set_variables.sh` is correctly configured and sourced.
+# - The script uses basic authentication and filters JSON output using grep.
+# ==============================================================================
 
-#
-# Ensure the defined variables are loaded in our context
-#
+echo "Loading variables into our context..."
 source "../set_variables.sh"
 
-
+# Full response
 curl -k -u "${USER}:${PWD}" -X "GET" "https://${SERVER}:${PORT}/api/v2.0/daemons" -H "accept: application/json"
 
-# 
-# Let's say we want to extract only parts of the response.
-# To do so, first we are going to preserve the whole response in a variable.
-# Then we will filter it to show us various lines from the response.
-#
+# Store full response in a variable
 RESPONSE=$(curl -k -u "${USER}:${PWD}" -X "GET" "https://${SERVER}:${PORT}/api/v2.0/daemons" -H "accept: application/json")
-# TODO: remove the output from above line
 
-#
-# I am interested in the SSH daemon.
-# It is 'hidden' under the key 'sshStatus', so I will grep for it.
-#
-
+# Extract sshStatus
 echo "${RESPONSE}" | grep "sshStatus"
 
-#
-# Here is the same request, but with the 'fields' parameter.
-# This parameter allows us to specify which fields we want to see in the response.
-# In this case, we are only interested in the 'sshStatus' field.
-#
+# Filtered response using 'fields' parameter
 RESPONSE=$(curl -k -u "${USER}:${PWD}" -X "GET" "https://${SERVER}:${PORT}/api/v2.0/daemons?fields=sshStatus" -H "accept: application/json")
 echo "${RESPONSE}"
