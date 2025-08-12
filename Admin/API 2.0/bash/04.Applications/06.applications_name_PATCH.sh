@@ -40,3 +40,15 @@ curl -s -o /dev/null -w "%{http_code}\n" -k -u "${USER}:${PWD}" -X "PATCH" "${MA
         \"op\": \"replace\",
         \"path\": \"/schedules/0/startDate\",
         \"value\": \"2025-02-21T02:30:00Z\" }]"
+
+#
+# Here is an example of adding a new Business Unit to a given application, 
+# when there are already other Business Units assigned
+#
+# printf "Patching the application '%s' to add a new Business Unit...\n" "${NAME}"
+# curl -s -o /dev/null -w "%{http_code}\n" -k -u "${USER}:${PWD}" -X "PATCH" "${MAIN_URL}/${NAME}" \
+# -H "accept: application/json" -H "Content-Type: application/json" \
+# -d "[{
+#         \"op\": \"add\",
+#         \"path\": \"/businessUnits/-\",
+#         \"value\": \"HumanResources\" }]"
